@@ -27,9 +27,9 @@ jobs:
             echo ls ${{ env.GITHUB_WORKSPACE }} 
             
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore CommunityToolkit.Maui.Markup.Sample/CommunityToolkit.Maui.Markup.Sample.csproj
     - name: Build
-      run: dotnet publish eltepiApp/eltepiApp.csproj -f net7.0-android -c Release /p:AndroidKeyStore=True  /p:AndroidSigningKeyStore="key.keystore" /p:AndroidSigningKeyAlias="key" /p:AndroidSigningKeyPass=password /p:AndroidSigningStorePass=password
+      run: dotnet publish CommunityToolkit.Maui.Markup.Sample/CommunityToolkit.Maui.Markup.Sample.csproj -f net7.0-android -c Release /p:AndroidKeyStore=True  /p:AndroidSigningKeyStore="key.keystore" /p:AndroidSigningKeyAlias="key" /p:AndroidSigningKeyPass=password /p:AndroidSigningStorePass=password
 
 
     - name: Upload a Build Artifact
