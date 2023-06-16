@@ -31,9 +31,9 @@ public class MauiProgram
 		// Pages + View Models
 		builder.Services.AddTransientWithShellRoute<NewsPage, NewsViewModel>($"//{nameof(NewsPage)}");
 		builder.Services.AddTransientWithShellRoute<SettingsPage, SettingsViewModel>($"//{nameof(NewsPage)}/{nameof(SettingsPage)}");
-		builder.Services.AddTransientWithShellRoute<NewsDetailPage, NewsDetailViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailViewModel)}");
-		builder.Services.AddTransientWithShellRoute<ModalPage, ModalViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailViewModel)}/{nameof(ModalPage)}");
-		builder.Services.AddTransientWithShellRoute<X2ndLevelPage, X2ndLevelViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailViewModel)}/{nameof(X2ndLevelPage)}");
+		builder.Services.AddTransientWithShellRoute<NewsDetailPage, NewsDetailViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}");
+		builder.Services.AddTransientWithShellRoute<ModalPage, ModalViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(ModalPage)}");
+		builder.Services.AddTransientWithShellRoute<X2ndLevelPage, X2ndLevelViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(X2ndLevelPage)}");
 
 		return builder.Build();
 

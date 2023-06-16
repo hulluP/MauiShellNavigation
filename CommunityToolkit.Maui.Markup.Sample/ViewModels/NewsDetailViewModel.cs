@@ -16,14 +16,14 @@ sealed partial class NewsDetailViewModel : BaseViewModel, IQueryAttributable
 	[RelayCommand]
 	static Task OpenModal()
 	{
-		var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailViewModel)}/{nameof(ModalPage)}";
+		var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(ModalPage)}";
 		return Shell.Current.GoToAsync(route);
 	}
 	[RelayCommand]
 	static Task Open2ndLevel()
 	{
-		var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailViewModel)}/{nameof(X2ndLevelPage)}";
-		return Shell.Current.GoToAsync(route);
+		var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(X2ndLevelPage)}";
+        return Shell.Current.GoToAsync(route);
 	}
 
 	public NewsDetailViewModel(IBrowser browser)

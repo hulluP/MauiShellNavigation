@@ -20,8 +20,8 @@ sealed class NewsPage : BaseContentPage<NewsViewModel>
             Content = new CollectionView
             {
                 SelectionMode = SelectionMode.Single,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.Fill,
+                VerticalOptions = LayoutOptions.Fill,
 
             }.BackgroundColor(Colors.Transparent)
              .ItemTemplate(new StoryDataTemplate())
@@ -94,7 +94,7 @@ sealed class NewsPage : BaseContentPage<NewsViewModel>
 
     Task NavigateToNewsDetailPage(StoryModel storyModel) => dispatcher.DispatchAsync(() =>
     {
-        var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailViewModel)}";
+        var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}";
 
         // Shell passes these parameters to NewsDetailViewModel.ApplyQueryAttributes
         var parameters = new Dictionary<string, object>
