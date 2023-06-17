@@ -30,6 +30,13 @@ sealed class NewsDetailPage : BaseContentPage<NewsDetailViewModel>
 					.Style(AppStyles.ButtonStyle)
 					.BindCommand(static (NewsDetailViewModel vm) => vm.Open2ndLevelCommand, mode: BindingMode.OneWay)
 					.SemanticHint("Launches the news article in the devices browser."),
+				 new Button()
+					.Text("Launch Settings")
+					.Font(size: 20, family: "FontAwesome")
+					.Basis(50)
+					.Style(AppStyles.ButtonStyle)
+					.BindCommand(static (NewsDetailViewModel vm) => vm.OpenSettingsCommand, mode: BindingMode.OneWay)
+					.SemanticHint("Launches the news article in the devices browser."),
 
 				new WebView()
 					.Grow(1).AlignSelf(FlexAlignSelf.Stretch)

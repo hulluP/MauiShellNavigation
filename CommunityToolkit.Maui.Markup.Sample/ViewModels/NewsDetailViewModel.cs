@@ -16,16 +16,22 @@ sealed partial class NewsDetailViewModel : BaseViewModel, IQueryAttributable
 	[RelayCommand]
 	static Task OpenModal()
 	{
-		var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(ModalPage)}";
+		var route = $"{nameof(ModalPage)}";
 		return Shell.Current.GoToAsync(route);
 	}
 	[RelayCommand]
 	static Task Open2ndLevel()
 	{
-		var route = MauiProgram.X2ndLevelPage;
-        return Shell.Current.GoToAsync(route);
+		var route = $"/{nameof(X2ndLevelPage)}";
+		return Shell.Current.GoToAsync(route);
 	}
 
+	[RelayCommand]
+	static Task OpenSettings()
+	{
+		var route = $"../{nameof(SettingsPage)}";
+		return Shell.Current.GoToAsync(route);
+	}
 	public NewsDetailViewModel(IBrowser browser)
 	{
 		this.browser = browser;
@@ -48,14 +54,14 @@ sealed partial class NewsDetailViewModel : BaseViewModel, IQueryAttributable
 	{
 		if (query.Count > 0)
 		{
-            var url = (string)query[nameof(Uri)];
-            var title = (string)query[nameof(Title)];
-            var scoreDescription = (string)query[nameof(ScoreDescription)];
+			var url = (string)query[nameof(Uri)];
+			var title = (string)query[nameof(Title)];
+			var scoreDescription = (string)query[nameof(ScoreDescription)];
 
-            Uri = new Uri(url);
-            Title = title;
-            ScoreDescription = scoreDescription;
-        }
+			Uri = new Uri(url);
+			Title = title;
+			ScoreDescription = scoreDescription;
+		}
 
 	}
 }

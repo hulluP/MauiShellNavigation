@@ -53,8 +53,23 @@ sealed class SettingsPage : BaseContentPage<SettingsViewModel>
 					.TextCenter()
 					.AppThemeColorBinding(Label.TextColorProperty,AppStyles.BlackColor, AppStyles.PrimaryTextColorDark)
 					.Font(size: 12, italic: true)
-					.SemanticHint($"The minimum and maximum possible values for the {topNewsStoriesToFetchLabel.Text} field above.")
+					.SemanticHint($"The minimum and maximum possible values for the {topNewsStoriesToFetchLabel.Text} field above."),
+				new Button()
+						.Text("close Me")
+						.Font(bold: true)
+						.CenterHorizontal()
+						   .Invoke(l => l.Command = new Command(async () =>
+							await Shell.Current.GoToAsync("..")))
+
+
 			}
 		};
+
+	}
+	protected override bool OnBackButtonPressed()
+	{
+		Shell.Current.GoToAsync($"///" + MauiProgram.ROOT);
+		// return base.OnBackButtonPressed();
+		return true;
 	}
 }

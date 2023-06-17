@@ -61,7 +61,7 @@ sealed class NewsPage : BaseContentPage<NewsViewModel>
         {
             if (!string.IsNullOrEmpty(storyModel.Url))
             {
-                await NavigateToNewsDetailPage(storyModel);
+                // await NavigateToNewsDetailPage(storyModel);
             }
             else
             {
@@ -88,22 +88,8 @@ sealed class NewsPage : BaseContentPage<NewsViewModel>
 
     Task NavigateToSettingsPage() => dispatcher.DispatchAsync(() =>
     {
-        var route = $"//{nameof(NewsPage)}/{nameof(SettingsPage)}";
-        return Shell.Current.GoToAsync(route);
+        // var route = $"///{nameof(SettingsPage)}";
+        return Shell.Current.GoToAsync($"/{nameof(SettingsPage)}");
     });
 
-    Task NavigateToNewsDetailPage(StoryModel storyModel) => dispatcher.DispatchAsync(() =>
-    {
-        var route = MauiProgram.DETAILPAGE;
-
-        // Shell passes these parameters to NewsDetailViewModel.ApplyQueryAttributes
-        var parameters = new Dictionary<string, object>
-        {
-            { nameof(NewsDetailViewModel.Uri), storyModel.Url },
-            { nameof(NewsDetailViewModel.Title), storyModel.Title },
-            { nameof(NewsDetailViewModel.ScoreDescription), storyModel.Description}
-        };
-
-        return Shell.Current.GoToAsync(route, parameters);
-    });
 }

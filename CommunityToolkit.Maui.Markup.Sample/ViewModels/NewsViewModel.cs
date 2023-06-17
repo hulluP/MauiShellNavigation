@@ -74,12 +74,22 @@ sealed partial class NewsViewModel : BaseViewModel, IDisposable
         finally
         {
             IsListRefreshing = false;
+            if (TopStoryCollection.Count == 0)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    var nextStory = new StoryModel(i, "Author" + i, 33, 33 + i, "Title " + i, "https://level28.de/news/" + i);
+                    TopStoryCollection.Add(nextStory);
+                }
+            }
         }
+
+
     }
 
     Task NavigateToNewsDetailPage(StoryModel storyModel) => dispatcher.DispatchAsync(() =>
     {
-        var route = MauiProgram.DETAILPAGE;
+        var route = $"/{nameof(NewsDetailPage)}";
 
         // Shell passes these parameters to NewsDetailViewModel.ApplyQueryAttributes
         var parameters = new Dictionary<string, object>

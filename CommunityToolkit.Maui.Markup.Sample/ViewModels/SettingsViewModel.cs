@@ -17,4 +17,11 @@ sealed partial class SettingsViewModel : BaseViewModel
 	{
 		settingsService.NumberOfTopStoriesToFetch = value;
 	}
+
+	[RelayCommand]
+	static async Task MainButton()
+	{
+		await Shell.Current.GoToAsync($"//" + MauiProgram.ROOT);
+	}
+
 }
