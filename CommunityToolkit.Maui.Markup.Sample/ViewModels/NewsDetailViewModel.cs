@@ -22,7 +22,7 @@ sealed partial class NewsDetailViewModel : BaseViewModel, IQueryAttributable
 	[RelayCommand]
 	static Task Open2ndLevel()
 	{
-		var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(X2ndLevelPage)}";
+		var route = MauiProgram.X2ndLevelPage;
         return Shell.Current.GoToAsync(route);
 	}
 
@@ -46,12 +46,16 @@ sealed partial class NewsDetailViewModel : BaseViewModel, IQueryAttributable
 
 	void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
 	{
-		var url = (string)query[nameof(Uri)];
-		var title = (string)query[nameof(Title)];
-		var scoreDescription = (string)query[nameof(ScoreDescription)];
+		if (query.Count > 0)
+		{
+            var url = (string)query[nameof(Uri)];
+            var title = (string)query[nameof(Title)];
+            var scoreDescription = (string)query[nameof(ScoreDescription)];
 
-		Uri = new Uri(url);
-		Title = title;
-		ScoreDescription = scoreDescription;
+            Uri = new Uri(url);
+            Title = title;
+            ScoreDescription = scoreDescription;
+        }
+
 	}
 }

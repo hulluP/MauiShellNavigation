@@ -44,7 +44,6 @@ sealed class NewsDetailPage : BaseContentPage<NewsDetailViewModel>
 					.SemanticHint("Launches the news article in the devices browser."),
 
 				new Label()
-					.TextCenter()
 					.AlignSelf(FlexAlignSelf.Stretch)
 					.Paddings(bottom: 20)
 					.Style(AppStyles.LabelStyle)

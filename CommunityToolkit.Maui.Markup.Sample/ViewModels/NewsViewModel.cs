@@ -79,7 +79,7 @@ sealed partial class NewsViewModel : BaseViewModel, IDisposable
 
     Task NavigateToNewsDetailPage(StoryModel storyModel) => dispatcher.DispatchAsync(() =>
     {
-        var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}";
+        var route = MauiProgram.DETAILPAGE;
 
         // Shell passes these parameters to NewsDetailViewModel.ApplyQueryAttributes
         var parameters = new Dictionary<string, object>

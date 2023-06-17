@@ -94,7 +94,7 @@ sealed class NewsPage : BaseContentPage<NewsViewModel>
 
     Task NavigateToNewsDetailPage(StoryModel storyModel) => dispatcher.DispatchAsync(() =>
     {
-        var route = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}";
+        var route = MauiProgram.DETAILPAGE;
 
         // Shell passes these parameters to NewsDetailViewModel.ApplyQueryAttributes
         var parameters = new Dictionary<string, object>

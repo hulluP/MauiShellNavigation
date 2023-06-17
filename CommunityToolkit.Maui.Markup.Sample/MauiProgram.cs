@@ -5,7 +5,9 @@ namespace CommunityToolkit.Maui.Markup.Sample;
 
 public class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
+    public const string X2ndLevelPage = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(X2ndLevelPage)}";
+	public const string DETAILPAGE = $"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}";
+    public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder()
 								.UseMauiApp<App>()
@@ -31,9 +33,10 @@ public class MauiProgram
 		// Pages + View Models
 		builder.Services.AddTransientWithShellRoute<NewsPage, NewsViewModel>($"//{nameof(NewsPage)}");
 		builder.Services.AddTransientWithShellRoute<SettingsPage, SettingsViewModel>($"//{nameof(NewsPage)}/{nameof(SettingsPage)}");
-		builder.Services.AddTransientWithShellRoute<NewsDetailPage, NewsDetailViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}");
+       
+        builder.Services.AddTransientWithShellRoute<NewsDetailPage, NewsDetailViewModel>(DETAILPAGE);
 		builder.Services.AddTransientWithShellRoute<ModalPage, ModalViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(ModalPage)}");
-		builder.Services.AddTransientWithShellRoute<X2ndLevelPage, X2ndLevelViewModel>($"//{nameof(NewsPage)}/{nameof(NewsDetailPage)}/{nameof(X2ndLevelPage)}");
+		builder.Services.AddTransientWithShellRoute<X2ndLevelPage, X2ndLevelViewModel>(X2ndLevelPage);
 
 		return builder.Build();
 
